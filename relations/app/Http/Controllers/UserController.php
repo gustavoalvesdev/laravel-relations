@@ -13,4 +13,10 @@ class UserController extends Controller
         $users = User::all();
         return $users;
     }
+
+    public function findOne(Request $request)
+    {
+        $user = User::find($request->id);
+        return $user ?? [];
+    }
 }

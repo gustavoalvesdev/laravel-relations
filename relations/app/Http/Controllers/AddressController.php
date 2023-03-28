@@ -13,4 +13,10 @@ class AddressController extends Controller
         $addresses = Address::all();
         return $addresses;
     }
+
+    public function findOne(Request $request)
+    {
+        $address = Address::find($request->id);
+        return $address ?? [];
+    }
 }
