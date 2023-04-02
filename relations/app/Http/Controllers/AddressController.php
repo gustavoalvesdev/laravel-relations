@@ -14,6 +14,17 @@ class AddressController extends Controller
         return $addresses;
     }
 
+    public function save(Request $request)
+    {
+        $address = new Address();
+
+        $address->address = $request->address;
+
+        $address->save();
+
+        return $address;
+    }
+
     public function findOne(Request $request)
     {
         $address = Address::find($request->id);

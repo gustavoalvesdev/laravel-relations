@@ -14,6 +14,19 @@ class UserController extends Controller
         return $users;
     }
 
+    public function save(Request $request)
+    {
+        $user = new User();
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+
+        $user->save();
+
+        return $user;
+    }
+
     public function findOne(Request $request)
     {
         $user = User::find($request->id);
