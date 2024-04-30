@@ -24,4 +24,10 @@ class InvoiceController extends Controller
             ]) 
         );
     }
+
+    public function findOne(Request $r)
+    {
+        $invoice = Invoice::find($r->id);
+        return $invoice->user;
+    }
 }
