@@ -30,6 +30,7 @@ class UserController extends Controller
     public function findOne(Request $request)
     {
         $user = User::find($request->id);
-        return $user->address ?? [];
+        $user['address'] = $user->address;
+        return $user;
     }
 }
