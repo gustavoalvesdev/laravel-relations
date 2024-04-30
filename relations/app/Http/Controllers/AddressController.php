@@ -25,9 +25,10 @@ class AddressController extends Controller
         return $address;
     }
 
-    public function findOne(Request $request)
+    public function findOne(Request $r)
     {
-        $address = Address::find($request->id);
-        return $address ?? [];
+        $address = Address::find($r->id);
+        $address['user'] = $address->user;
+        return $address;
     }
 }
